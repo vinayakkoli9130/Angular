@@ -1,0 +1,112 @@
+
+
+
+<!-- <div class="container">    
+    <div class="row justify-content-center">
+        <div class="col-md-5 text-left rounded shadow py-5">
+            <h2>Reactive Form</h2>
+            <form [formGroup]="isReactiveForm" (ngSubmit)="OnSubmit">
+                 
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter email address">
+                    <small class="text-danger" *ngIf="!isReactiveForm.get('email').valid 
+                    && isReactiveForm.get('email').touched">
+                        Please enter valid email
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="subscriptions">Subscription-: </label>
+                    <select formControlName="subscriptions" id="subscriptions" class="form-control">
+                        <option value="Basic"> Basic </option>
+                        <option value="Advanced" default> Advanced </option>
+                        <option value="Pro"> Pro </option>
+                    </select>
+                </div>
+
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" formControlName="password" class="form-control" id="password" placeholder="Enter Password">
+                    <small class="text-danger" *ngIf="!myReactiveForm.get('email').valid 
+                    && myReactiveForm.get('email').touched">
+                        Password Is Empty,Please enter Password
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Email</label>
+                    <input  id="requestdate" 
+                    type="date" 
+                    class="form-control" 
+                    formControlName="requestdate" placeholder="Enter email address">
+                  
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="row justify-content-center mt-2" *ngIf="isSubmitted">
+                <div class="col-md-6 rounded shadow py4">
+                  <h2>Form Data</h2>
+                  <p>Username:<strong> {{ myReactiveForm.get('userDetails.username').value}} </strong> </p>
+                  <p>Email: <strong>  {{ myReactiveForm.get('userDetails.email').value}}</strong></p>
+                  <p>Course: <strong>  {{ myReactiveForm.get('course').value}}</strong></p>
+                </div>
+        </div>
+    </div>
+  </div>  -->
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5 text-left rounded shadow py-5">
+          <h4 style="text-align:center">---------:Reactive Form Assignment:---------</h4>
+            <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+                
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" id="email"
+                     placeholder="Enter email address">
+                    <small class="text-danger" 
+                    *ngIf="!myReactiveForm.get('email').valid &&
+                     myReactiveForm.get('email').touched">
+                    Email is required.
+                    </small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="subscript">Subscriptions</label>
+                    <select formControlName="subscript" id="subscript" class="form-control"[(ngModel)]="defaultValue">
+                      <option  disabled>Select Subscription-</option>
+                      <option  *ngFor="let subscription of subscriptions" value="{{subscription}}">{{subscription}}</option>
+                    </select>
+                </div> 
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <div class="text-danger"
+                     *ngIf="!myReactiveForm.get('password').valid &&
+                      myReactiveForm.get('password').touched">
+                        Password is required.
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="date"> Date : </label>
+                    <input type="date" formControlName="date" name="date" [min]="getToday()">
+                </div>
+                <div class="form-group mb-3">
+                    <div class="text-danger" 
+                    *ngIf="!myReactiveForm.get('date').valid && 
+                    myReactiveForm.get('date').touched">
+                        Date Is Required And Date Must Be Today Or In Future
+                    </div>
+                    <button type="submit" class="btn btn-primary"[disabled]="!myReactiveForm.valid">Submit</button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+  <div class="form-group" *ngIf="submitted">
+    <h2>From Data</h2>
+    <p>Email-:{{ myReactiveForm.get('email').value}}</p>
+    <p>Subscription-:{{ myReactiveForm.get('subscript').value}}</p>
+    <p>password-:{{ myReactiveForm.get('password').value}}</p>
+    <p>Date-:{{ myReactiveForm.get('date').value}}</p>
+  </div>
+                    
+                

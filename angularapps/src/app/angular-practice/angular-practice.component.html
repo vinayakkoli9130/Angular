@@ -1,0 +1,57 @@
+<!-- 
+        <h2>Reactive Form</h2>
+        <form [formGroup]="myReactiveForm" (ngSubmit)=" OnSubmit()"> -->
+          <!-- <div formGroupName="userName"> -->
+          <!-- <label for="name">Name</label>
+          <input type="text" formControlName="name"><br>
+          <label for="lastName" >last Name</label>
+          <input type="text" formControlName="lastName"><br>
+          <label for="email">Email</label>
+          <input type="email" formControlName="email"> -->
+          <!-- </div><br> -->
+          <!-- <button type="submit">Button</button>
+        </form>
+
+<div *ngIf = "isSubmitted">
+  <h2>FOrm </h2>
+<p>Name-:{{myReactiveForm.get('name').value}}</p>
+<p>Last Name-:{{myReactiveForm.get('lastName').value}}</p>
+<p>Cource-:{{myReactiveForm.get('email').value}}</p>
+</div> -->
+
+
+ <div>
+
+<form [formGroup]="myNewReactiveForm" (ngSubmit)="onInit()">
+<table>
+  <tbody>
+    <tr>
+      <td><label >Full Name</label></td>
+      <td><input type="text" formControlName="fName" required maxlength="15" minlength="4"></td>
+    </tr>
+    <tr>
+      <td><label >Mobile Number</label></td>
+      <td><input type="number" formControlName="mobileNumber" required maxlength="10" minlength="10"></td>
+    </tr>
+    <tr>
+      <td><label >email</label></td>
+      <td><input type="email" formControlName="email" required maxlength="15" minlength="4"></td>
+    </tr>
+    <tr>
+      <td>
+        <select formControlName="geneder" id="geneder">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+         </select>
+  </td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="submit">Submit</button>
+</form>
+ </div>
+  
+ 
+

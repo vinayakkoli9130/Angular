@@ -1,0 +1,82 @@
+<!-- 
+<div>
+    <div>
+        {{title}}
+    </div>
+    <div>
+        <div>
+            <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Cast</th>
+                            <th>ReleaseDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let movie of movies; let i=index; let oddItem=odd; let evenItem=even"[class.odd]="oddItem"
+                        [class.even]="evenItem">
+                            <td>{{i+1}}</td>
+                            <td>{{movie.title}}</td>
+                            <td>{{movie.director}}</td>
+                            <td>{{movie.cast}}</td>
+                            <td>{{movie.releaseDate}}</td>
+                        </tr>
+                        
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div style="background-color: aqua;font-size: medium;font-style: italic; font-size: xx-large;text-align: center;">{{titles}}</div>
+</div>
+<div>
+    <div>
+        <table id="table">
+            <thead id="tableHead">
+            <tr>
+                <th>Sr.No</th>
+                <th>Student Name</th>
+                <th>College Name</th>
+                <th>Branch </th>
+                <th>Mark</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of student;let i=index; let odds=odd;let evens=even"[class.odd]="odds" [class.even]="even">
+                    <td>{{i+1}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.clgName}}</td>
+                    <td>{{s.branch}}</td>
+                    <td>{{s.mark}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div> -->
+
+<table>
+    <thead>
+        <tr>
+            <th>Sr.NO</th>
+            <th> Song Name</th>
+            <th>Singer Name</th>
+            <th>Lyrics Writter</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of song ;let i = index; let odds=odd;let evens=even"[class.odd]="odds"[class.even]="evens" >
+            <td >{{i+1}}</td>
+            <td >{{s.songName}}  </td>
+            <td>{{s.singerName}}</td>
+            <td>{{s.lyrics}}</td>
+            <td>{{s.duration}}</td>
+        </tr>
+    </tbody>
+</table>

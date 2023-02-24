@@ -1,0 +1,133 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+              <form class="login-form" #loginForm="ngForm">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                        <label class="form-label" for="firstName">First Name</label>
+                        <input type="text" name="firstName" matInput id="firstName" ngModel #firstName="ngModel" required placeholder="name" minlength="3" maxlength="5" class="form-control form-control-lg" />               
+                        <mat-error *ngIf="firstName.errors?.required &&firstName.touched">The Name Is Mandatory</mat-error>
+                        <mat-error *ngIf="firstName.errors?.minlength">
+                         your name must have minimum {{firstName.errors?.minlength.requiredLength}} chars,
+                         but it only has {{firstName.errors?.minlength.actualLength}}.
+                       </mat-error> 
+                    </div>
+                  </div>
+                 
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="lastName">Last Name</label>
+                      <input type="text" matInput ngModel #lastName="ngModel" name="lastName" id="lastName" class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+  
+                    <div class="form-outline datepicker w-100">
+                        <label for="birthdayDate" class="form-label">Age</label>
+                      <input type="number" matInput placeholder="Age" min="17" max="20" name="age" #age="ngModel"ngModel required class="form-control form-control-lg" id="birthdayDate" />
+                      <mat-error *ngIf="age.errors?.required && age.touched">The Age Name Is Mandatory</mat-error>
+                      <mat-error *ngIf="age.errors?.min">
+                          your age must have minimum{{age.errors?.min.maxNumber}} Number,
+                          but it only has {{age.errors?.min.actualNumber}}.
+                        </mat-error>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <h6 class="mb-2 pb-1">Gender: </h6>
+  
+                    <div class="form-check form-check-inline" *ngFor="let gender of  genders">
+                      <input class="form-check-input" type="radio" name="gender" id="gender" value="{{gender.value}}" 
+                      [ngModel]="defaultGender"
+                      id="femaleGender"
+                        value="option1" />
+                      <label class="form-check-label" for="{{gender.id}}">{{gender.value}}</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div class="form-outline">
+                        <label class="form-label" for="emailAddress">Email</label>
+                      <input type="email" matInput #email="ngModel" ngModel  name="email" required email id="email" 
+                      placeholder="Email" class="form-control form-control-lg" />
+                      <!-- <mat-error *ngIf="email.errors?.required && email.touched">The email Is Mandatory</mat-error>   -->
+                      <mat-error *ngIf="!email.valid && email.touched ">The email Is Invalid</mat-error>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+                    <label class="form-label" for="phoneNumber">Phone Number</label>   
+                    <div class="form-outline">
+                      <input type="tel" matInput  ngModel #phoneNumber="ngModel" name="phoneNumber" id="phoneNumber"
+                      placeholder="Phone Number" minlength="10" maxlength="10" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                      class="form-control form-control-lg" />
+                      <mat-error *ngIf="phoneNumber.errors?.required && phoneNumber.touched">The phone Number Is Mandatory </mat-error>
+                  <mat-error *ngIf="phoneNumber.errors?.minlength ">
+                    your Phone Number Must Be {{phoneNumber.errors?.minlength.requiredLength}} Numbers,
+                    But It Only Has {{phoneNumber.errors?.minlength.actualLength}}.
+                  </mat-error>
+                    </div>
+  
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="lastName">Password</label>
+
+                        <input type="password" name="passwordFieldName" placeholder="Password" #modelPassword="ngModel" [(ngModel)]="model.password"
+                        class="form-control form-control-lg">
+                      <!-- <input type="password" matInput ngModel name="passwordFieldName" ngModel="passwordFieldName" id="passwordFieldName" 
+                      [(ngModel)]="model.password" #modelPassword="ngModel" 
+                      />
+                       -->
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <label class="form-label" for="lastName">Confirm Password</label>
+                      <input type="password" ngValidateEqual="password" matInput ngModel #password="ngModel" name="password" id="password"
+                      [(ngModel)]="model.password"
+                      class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                  
+
+                <div class="row">
+                  <div class="col-12">
+                   
+                    <select class="select form-control-lg">
+                        <option value="vsvs" disabled>Select City</option>
+                      <option  *ngFor="let city of citys" value="{{city}}">{{city}}</option>
+                      <!-- <option value="2">{{city}}</option> -->
+                      <!-- <option value="3">Subject 2</option>
+                      <option value="4">Subject 3</option> -->
+                    </select>
+                    <label class="form-label select-label">Choose option</label>
+                  </div>
+                </div>
+  
+                <div class="mt-4 pt-2">
+                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

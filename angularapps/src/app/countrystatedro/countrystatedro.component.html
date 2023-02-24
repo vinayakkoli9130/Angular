@@ -1,0 +1,46 @@
+<h2>Countries And Countries State</h2>
+<select (change)="onCountrySelect($event)">
+    <option value=""><span style="background-color: aquamarine;text-align: center;">Select Country</span></option>
+    <option value="{{c.id}}" *ngFor="let c of   countries">
+        {{c.name}}
+    </option>
+</select>
+
+<select >
+    <option id="op" value="">Select State</option>
+    <option id="ops" value="{{s.id}}" *ngFor="let s of  states">
+        {{s.name}}
+    </option>
+</select>
+
+<h2> Players And Country</h2>
+<select (change)="onClick($event)">
+  <option value="">Select Option</option>
+  <option value="{{p.id}}" *ngFor=" let p of playersName">
+    {{p.name}}
+  </option>
+</select>
+<select>
+  <option >Select Option</option>
+  <option value="{{s.id}}" *ngFor="let  s of player">{{s.name}}</option>
+</select>
+
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+      
+        <button
+          class="btn btn-primary"
+          (click)="addToggleMessage()"
+          >Display Details</button>
+          <p *ngIf="pVisible">After Click Button</p>
+          <hr>
+          <div *ngFor="let toggleMessage of toggleMessages; let i = index">
+            <div [ngStyle]="{backgroundColor : i > 3 ? 'lightblue' : 'white'}"
+                [ngClass]="{whiteColor: i > 6}">
+              {{ i + 1 }} : {{ toggleMessage }}</div>
+          </div>
+      </div>
+    </div>
+  </div> -->

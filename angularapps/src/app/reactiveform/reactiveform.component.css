@@ -1,0 +1,9 @@
+form{
+    background-color: antiquewhite;
+}
+label{
+    color: rgb(142, 161, 155);
+    font-size: xx-large;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

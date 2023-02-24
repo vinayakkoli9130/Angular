@@ -1,0 +1,67 @@
+<!-- 
+
+<div  style="margin-left: 15px;" *ngIf="showme;else elseBlock">
+    <div *ngFor="let p of posts">
+        <div>{{p.title}}</div>
+        <div>
+            <img *ngIf="p.imageUrl; else noImage" width="200px" [src]="p.imageUrl" alt="This is nature image">
+          <ng-template #noImage> <p>No image is available</p> </ng-template>
+        </div>
+        <div>{{p.content}}</div>
+    </div>
+</div>
+
+
+<ng-template #elseBlock>
+    <p>Content Not AVailable</p>
+</ng-template>
+
+<div>
+    <div>
+Players Information
+    </div>
+    <div *ngIf="showme elseBlock">
+<div *ngFor="let c of  cricketerInfo;let i=index">
+    <div>{{i+1}}</div>
+    <br>
+    <div *ngIf="c.name else noMatch" >{{c.name}}</div>
+    <br>
+    <div *ngIf="c.match else noMatch">{{c.match}}</div>
+   
+    <br>
+    <div *ngIf="c.runs else noMatch">{{c.runs}}</div>
+    <br>
+    <div *ngIf="c.highestScore else noMatch">{{c.highestScore}}</div>
+    <br>
+    <div *ngIf="c.country else noMatch">{{c.country}}</div>
+    
+    <ng-template #noMatch>No Information Availbale</ng-template>
+
+</div>
+
+    </div>
+</div> -->
+<table>
+    <thead>
+        <tr>
+        <th>Sr.No</th>
+        <th> Player Name</th>
+        <th>Match</th>
+        <th>Runs</th>
+        <th>Highest Score</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of  cricketerInfo;let i=index">
+            <td  >{{i+1}}</td>
+            <td *ngIf="c.name else noMatch" >{{c.name}}</td>
+            <td *ngIf="c.match else noMatch">{{c.match}}</td>
+            <td *ngIf="c.runs else noMatch">{{c.runs}}</td>
+            <td *ngIf="c.highestScore else noMatch">{{c.highestScore}}</td>
+            <td  *ngIf="c.country else noMatch">{{c.country}}</td>
+          
+        </tr>
+    </tbody>
+</table>
+<ng-template #noMatch>No Information Availbale</ng-template>

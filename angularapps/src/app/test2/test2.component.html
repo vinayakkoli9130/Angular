@@ -1,0 +1,21 @@
+<p>test2 works!</p>
+
+
+
+ <input type="text" (keyup)="onKeyUp($event)">
+
+ <button class="btn btn-primary" type="submit">Button</button>
+ <button (click)="onButtonClick()" >Click me</button>
+
+
+ <h1>Two way databinding</h1>
+
+<input type="text" [(ngModel)]="firstName">
+
+  {{firstName}}
+
+  <button class="btn btn-primary" (click)="sendToParent()">Click me from Test2</button>
+
+
+  <!-- <button (click)="sendToParent()"> Personal Information</button> -->
+  <button (click)="sendsToParent()"> Information</button>
